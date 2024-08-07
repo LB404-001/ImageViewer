@@ -302,5 +302,7 @@ namespace Image_Viewer
             IsDark = !IsDark;
             ImageBox.Focus();
         }
+
+
     }
 }
