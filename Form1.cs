@@ -68,6 +68,7 @@ namespace Image_Viewer
                 Image = Image.FromFile(files[PageNumber - 1]);
                 ImageBox.Image = Image;
                 Image = null;
+                ImageBox.Focus();
                 System.GC.Collect();
             }
             catch (IOException)
@@ -97,6 +98,7 @@ namespace Image_Viewer
                 Image = Image.FromFile(files[PageNumber - 1]);
                 ImageBox.Image = Image;
                 Image = null;
+                ImageBox.Focus();
                 System.GC.Collect();
             }
             catch (IOException)
@@ -126,6 +128,7 @@ namespace Image_Viewer
                 Image = Image.FromFile(files[PageNumber - 1]);
                 ImageBox.Image = Image;
                 Image = null;
+                ImageBox.Focus();
                 System.GC.Collect();
             }
             catch (IOException)
@@ -155,6 +158,7 @@ namespace Image_Viewer
                 Image = Image.FromFile(files[PageNumber - 1]);
                 ImageBox.Image = Image;
                 Image = null;
+                ImageBox.Focus();
                 System.GC.Collect();
             }
             catch (IOException)
@@ -184,6 +188,7 @@ namespace Image_Viewer
                 Image = Image.FromFile(files[PageNumber - 1]);
                 ImageBox.Image = Image;
                 Image = null;
+                ImageBox.Focus();
                 System.GC.Collect();
             }
             catch (IOException)
@@ -295,6 +300,7 @@ namespace Image_Viewer
                 ChangeTheme.Image = Image.FromFile("Layer2.png");
             }
             IsDark = !IsDark;
+            ImageBox.Focus();
         }
     }
 }
