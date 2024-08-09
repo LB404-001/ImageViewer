@@ -39,15 +39,20 @@
             First = new Button();
             Error = new Label();
             ChangeTheme = new Button();
+            zipFileLoader = new Panel();
+            zipFileLoaderText = new Label();
+            DeleteFileButton = new Button();
+            GalleryList = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)ImageBox).BeginInit();
+            zipFileLoader.SuspendLayout();
             SuspendLayout();
             // 
             // ImageBox
             // 
             ImageBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            ImageBox.Location = new Point(18, 12);
+            ImageBox.Location = new Point(18, 41);
             ImageBox.Name = "ImageBox";
-            ImageBox.Size = new Size(636, 426);
+            ImageBox.Size = new Size(709, 482);
             ImageBox.SizeMode = PictureBoxSizeMode.Zoom;
             ImageBox.TabIndex = 0;
             ImageBox.TabStop = false;
@@ -57,7 +62,7 @@
             // Start
             // 
             Start.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            Start.Location = new Point(660, 378);
+            Start.Location = new Point(733, 463);
             Start.Name = "Start";
             Start.Size = new Size(128, 60);
             Start.TabIndex = 1;
@@ -68,7 +73,7 @@
             // PathToFileBox
             // 
             PathToFileBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            PathToFileBox.Location = new Point(660, 349);
+            PathToFileBox.Location = new Point(733, 434);
             PathToFileBox.Name = "PathToFileBox";
             PathToFileBox.Size = new Size(128, 23);
             PathToFileBox.TabIndex = 2;
@@ -79,7 +84,7 @@
             // Number
             // 
             Number.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            Number.Location = new Point(660, 231);
+            Number.Location = new Point(733, 316);
             Number.Name = "Number";
             Number.ReadOnly = true;
             Number.Size = new Size(128, 23);
@@ -89,7 +94,7 @@
             // PageForward
             // 
             PageForward.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            PageForward.Location = new Point(727, 260);
+            PageForward.Location = new Point(800, 345);
             PageForward.Name = "PageForward";
             PageForward.Size = new Size(61, 32);
             PageForward.TabIndex = 4;
@@ -100,7 +105,7 @@
             // PageBack
             // 
             PageBack.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            PageBack.Location = new Point(660, 260);
+            PageBack.Location = new Point(733, 345);
             PageBack.Name = "PageBack";
             PageBack.Size = new Size(61, 32);
             PageBack.TabIndex = 5;
@@ -112,7 +117,7 @@
             // 
             PageNumberList.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             PageNumberList.FormattingEnabled = true;
-            PageNumberList.Location = new Point(660, 12);
+            PageNumberList.Location = new Point(733, 12);
             PageNumberList.Name = "PageNumberList";
             PageNumberList.Size = new Size(128, 23);
             PageNumberList.TabIndex = 6;
@@ -123,7 +128,7 @@
             // Last
             // 
             Last.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            Last.Location = new Point(727, 298);
+            Last.Location = new Point(800, 383);
             Last.Name = "Last";
             Last.Size = new Size(61, 32);
             Last.TabIndex = 7;
@@ -134,7 +139,7 @@
             // First
             // 
             First.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            First.Location = new Point(660, 298);
+            First.Location = new Point(733, 383);
             First.Name = "First";
             First.Size = new Size(61, 32);
             First.TabIndex = 8;
@@ -147,7 +152,7 @@
             Error.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Error.AutoSize = true;
             Error.ForeColor = Color.Green;
-            Error.Location = new Point(660, 76);
+            Error.Location = new Point(733, 76);
             Error.Name = "Error";
             Error.Size = new Size(24, 15);
             Error.TabIndex = 9;
@@ -156,18 +161,68 @@
             // ChangeTheme
             // 
             ChangeTheme.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            ChangeTheme.Location = new Point(660, 41);
+            ChangeTheme.Location = new Point(733, 41);
             ChangeTheme.Name = "ChangeTheme";
             ChangeTheme.Size = new Size(32, 32);
             ChangeTheme.TabIndex = 10;
             ChangeTheme.UseVisualStyleBackColor = true;
             ChangeTheme.Click += ChangeTheme_Click;
             // 
+            // zipFileLoader
+            // 
+            zipFileLoader.AllowDrop = true;
+            zipFileLoader.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            zipFileLoader.BackColor = SystemColors.Control;
+            zipFileLoader.BorderStyle = BorderStyle.FixedSingle;
+            zipFileLoader.Controls.Add(zipFileLoaderText);
+            zipFileLoader.Location = new Point(733, 246);
+            zipFileLoader.Name = "zipFileLoader";
+            zipFileLoader.Size = new Size(128, 64);
+            zipFileLoader.TabIndex = 11;
+            zipFileLoader.DragDrop += zipFile_DragDrop;
+            zipFileLoader.DragEnter += zipFile_DragEnter;
+            zipFileLoader.DragLeave += zipFile_DragLeave;
+            // 
+            // zipFileLoaderText
+            // 
+            zipFileLoaderText.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            zipFileLoaderText.Location = new Point(-1, 0);
+            zipFileLoaderText.Name = "zipFileLoaderText";
+            zipFileLoaderText.Size = new Size(128, 62);
+            zipFileLoaderText.TabIndex = 0;
+            zipFileLoaderText.Text = "File.zip";
+            zipFileLoaderText.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // DeleteFileButton
+            // 
+            DeleteFileButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            DeleteFileButton.Location = new Point(800, 209);
+            DeleteFileButton.Name = "DeleteFileButton";
+            DeleteFileButton.Size = new Size(61, 31);
+            DeleteFileButton.TabIndex = 12;
+            DeleteFileButton.Text = "Delete";
+            DeleteFileButton.UseVisualStyleBackColor = true;
+            DeleteFileButton.Click += DeleteFileButton_Click;
+            // 
+            // GalleryList
+            // 
+            GalleryList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            GalleryList.FormattingEnabled = true;
+            GalleryList.Location = new Point(18, 12);
+            GalleryList.Name = "GalleryList";
+            GalleryList.Size = new Size(709, 23);
+            GalleryList.TabIndex = 13;
+            GalleryList.Text = "Files";
+            GalleryList.SelectedIndexChanged += GalleryList_SelectedIndexChanged;
+            // 
             // Form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(873, 535);
+            Controls.Add(GalleryList);
+            Controls.Add(DeleteFileButton);
+            Controls.Add(zipFileLoader);
             Controls.Add(ChangeTheme);
             Controls.Add(Error);
             Controls.Add(First);
@@ -184,6 +239,7 @@
             Text = "Form1";
             Load += Form1_Load_1;
             ((System.ComponentModel.ISupportInitialize)ImageBox).EndInit();
+            zipFileLoader.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -201,5 +257,9 @@
         private TextBox ErrorType;
         private Label Error;
         private Button ChangeTheme;
+        private Panel zipFileLoader;
+        private Label zipFileLoaderText;
+        private Button DeleteFileButton;
+        private ComboBox GalleryList;
     }
 }
